@@ -117,3 +117,17 @@ WHERE id = 1;
 DELETE FROM mascotas WHERE id = 3;
 
 SELECT * FROM historial_clinico WHERE id_mascota = 3;
+
+-------------------------------------------------
+--Ejercicio 9 – JOIN simple
+--Consulta que muestre:
+--● Nombre de la mascota
+--● Especie
+--● Nombre completo del dueño (nombre + apellido)
+
+SELECT 
+    m.nombre AS Nombre_Mascota,
+    m.especie AS Especie,
+    CONCAT(d.nombre, ' ', d.apellido) AS Dueno
+FROM mascotas m
+INNER JOIN duenos d ON m.id_dueno = d.id;
