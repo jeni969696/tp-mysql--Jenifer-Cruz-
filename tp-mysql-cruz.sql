@@ -58,3 +58,29 @@ CREATE TABLE historial_clinico(
     FOREIGN KEY (id_mascota) REFERENCES mascotas(id) ON DELETE CASCADE,
     FOREIGN KEY (id_veterinario) REFERENCES veterinarios(id)
 );
+
+------------------------------------------------------
+--Ejercicio 6 – Insertar registros
+--Insertar: 3 dueños con información completa , 3 mascotas, cada una asociada a un dueño, 2 veterinarios con especialidades distintas, 3 registros de historial clínico
+--dueños
+INSERT INTO duenos (nombre, apellido, telefono, direccion) VALUES
+('Pepe', 'Argento', '11-zapatero', 'Racing Club 123, Tigre'),
+('Lionel', 'Messi', '10-1010-1010', 'Rosario Siempre Estuvo Cerca 10'),
+('Ricardo', 'Fort', '11-MAIAMEEE', 'Fabrica de Chocolates 555');
+
+-- Mascotas
+INSERT INTO mascotas (nombre, especie, raza, fecha_nacimiento, id_dueno) VALUES
+('Fatiga', 'Perro', 'Ovejero Aleman', '2005-04-12', 1), 
+('Hulk', 'Perro', 'Dogo de Burdeos', '2016-01-01', 2), 
+('Cutucuchillo', 'Gato', 'Persa Electrico', '2012-11-25', 3); 
+
+-- Veterinarios
+INSERT INTO veterinarios (nombre, apellido, matricula, especialidad) VALUES
+('Carlos', 'Bilardo', 'MV-GATORADE', 'Traumatologia Tactica'),
+('Julio', 'Tangalanga', 'MV-TARUF ETI', 'Fonoaudiologia Animal');
+
+-- Historial 
+INSERT INTO historial_clinico (id_mascota, id_veterinario, descripcion) VALUES
+(1, 1, 'El paciente se niega a levantarse del sillón. Signos vitales estables pero vagos.'),
+(2, 1, 'Control de peso. Exceso de masa muscular por jugar a la pelota.'),
+(3, 2, 'Consulta telefónica. El gato maúlla raro cuando le sacan la electricidad.');
