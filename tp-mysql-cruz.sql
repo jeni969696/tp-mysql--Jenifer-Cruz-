@@ -1,3 +1,4 @@
+--Trabajo Práctico - MySQL Veterinaria "Patitas Felices"
 -------------------------------------------------
 --Ejercicio 1 – Crear Base de Datos
 --Crear una base de datos llamada veterinaria_patitas_felices.
@@ -131,3 +132,27 @@ SELECT
     CONCAT(d.nombre, ' ', d.apellido) AS Dueno
 FROM mascotas m
 INNER JOIN duenos d ON m.id_dueno = d.id;
+
+
+-------------------------------------------------
+--Ejercicio 10 – JOIN múltiple con historial
+--Consulta que muestre todas las entradas del historial clínico con:
+--● Nombre y especie de la mascota
+--● Nombre completo del dueño
+--● Nombre completo del veterinario
+--● Fecha de registro
+--● Descripción
+--Ordenados por fecha de registro descendente (DESC).
+
+SELECT 
+    m.nombre AS Mascota,
+    m.especie AS Especie,
+    CONCAT(d.nombre, ' ', d.apellido) AS Dueno,
+    CONCAT(v.nombre, ' ', v.apellido) AS Veterinario,
+    h.fecha_registro AS Fecha,
+    h.descripcion AS Diagnostico
+FROM historial_clinico h
+INNER JOIN mascotas m ON h.id_mascota = m.id
+INNER JOIN duenos d ON m.id_dueno = d.id
+INNER JOIN veterinarios v ON h.id_veterinario = v.id
+ORDER BY h.fecha_registro DESC;
