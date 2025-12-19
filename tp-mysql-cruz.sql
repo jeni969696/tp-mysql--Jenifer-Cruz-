@@ -17,3 +17,44 @@ CREATE TABLE duenos (
 );
 
 -------------------------------------------------
+--Ejercicio 3 – Crear tabla mascotas
+--Crear la tabla mascotas 
+CREATE TABLE mascotas (
+    id INT PRIMARY KEY AUTO_INCREMENT ,
+    nombre VARCHAR(50) NOT NULL,
+    especie VARCHAR(30) NOT NULL,
+    raza VARCHAR(50),
+    fecha_nacimiento DATE,
+    id_dueno INT NOT NULL,
+    
+CONSTRAINT fk_mascotas_duenos FOREIGN KEY (id_dueno) 
+        REFERENCES duenos(id) 
+        ON DELETE CASCADE 
+);
+
+
+-------------------------------------------------
+--Ejercicio 4 – Crear tabla veterinarios
+--Crear la tabla veterinarios
+
+CREATE TABLE veterinarios (
+    id INT  PRIMARY KEY AUTO_INCREMENT ,
+    nombre VARCHAR(50) NOT NULL,
+    apellido VARCHAR(50) NOT NULL,
+    matricula VARCHAR(20) NOT NULL UNIQUE,
+    especialidad VARCHAR(50) NOT NULL
+);
+
+
+----------------------------------------------------
+--Ejercicio 5 – Crear tabla historial_clinico
+--Crear la tabla historial_clinico 
+CREATE TABLE historial_clinico(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    id_mascota INT,
+    id_veterinario INT,
+    fecha_registro DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    descripcion VARCHAR(250) NOT NULL,
+    FOREIGN KEY (id_mascota) REFERENCES mascotas(id) ON DELETE CASCADE,
+    FOREIGN KEY (id_veterinario) REFERENCES veterinarios(id)
+);
