@@ -108,3 +108,12 @@ UPDATE historial_clinico
 SET descripcion = 'El paciente sigue durmiendo. Se receta descanso absoluto.' 
 WHERE id = 1;
 
+-------------------------------------------------
+--Ejercicio 8 – Eliminar registros
+--1. Eliminar una mascota (por ID o nombre).
+--2. Verificar que se eliminen automáticamente los registros del historial clínico asociados (ON DELETE CASCADE).
+
+
+DELETE FROM mascotas WHERE id = 3;
+
+SELECT * FROM historial_clinico WHERE id_mascota = 3;
