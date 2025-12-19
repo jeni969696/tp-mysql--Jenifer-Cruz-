@@ -84,3 +84,27 @@ INSERT INTO historial_clinico (id_mascota, id_veterinario, descripcion) VALUES
 (1, 1, 'El paciente se niega a levantarse del sillón. Signos vitales estables pero vagos.'),
 (2, 1, 'Control de peso. Exceso de masa muscular por jugar a la pelota.'),
 (3, 2, 'Consulta telefónica. El gato maúlla raro cuando le sacan la electricidad.');
+
+-------------------------------------------------
+--Ejercicio 7 – Actualizar registros
+--
+--Realizar las siguientes actualizaciones:
+--1. Cambiar la dirección de un dueño (por ID o nombre).
+--2. Actualizar la especialidad de un veterinario (por ID o matrícula).
+--3. Editar la descripción de un historial clínico (por ID).
+
+--1
+UPDATE duenos 
+SET direccion = 'Zapateria el Pepe, Local 4' 
+WHERE id = 1;
+
+-- 2
+UPDATE veterinarios 
+SET especialidad = 'Medicina Deportiva Bilardista' 
+WHERE id = 1;
+
+-- 3
+UPDATE historial_clinico 
+SET descripcion = 'El paciente sigue durmiendo. Se receta descanso absoluto.' 
+WHERE id = 1;
+
